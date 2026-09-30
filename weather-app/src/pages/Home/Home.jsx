@@ -1,13 +1,25 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
 
 function Home() {
   const [city, setCity] = useState("");
+  const [error, setError] = useState("");
+
+  const navigate = useNavigate();
 
   function handleSearch(event) {
     event.preventDefault();
 
-    console.log(city);
+    const trimmedCity = city.trim();
+
+    if (!trimmedCity) {
+      setError("Skriv in en stad.");
+      return;
+    }
+
+    setError("");
+    navigate(`/weather/${encodeURIComponent(trimmedCity)}`);
   }
 
   return (
@@ -20,6 +32,8 @@ function Home() {
         setCity={setCity}
         onSearch={handleSearch}
       />
+
+      {error && <p>{error}</p>}
     </main>
   );
 }
