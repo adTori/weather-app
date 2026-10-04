@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom";
 import useWeather from "../../hooks/useWeather";
 import getWeatherDescription from "../../helpers/weatherHelpers";
+import ForecastList from "../../components/ForecastList/ForecastList";
 
 function WeatherDetails() {
   const { city } = useParams();
@@ -46,27 +47,10 @@ function WeatherDetails() {
             {weather.current_units.wind_speed_10m}
           </p>
 
-          <h2>Prognos</h2>
-
-          {weather.daily.time.map((date, index) => (
-            <div key={date}>
-              <h3>{date}</h3>
-
-              <p>
-                {getWeatherDescription(weather.daily.weather_code[index])}
-              </p>
-
-              <p>
-                Högst: {weather.daily.temperature_2m_max[index]}{" "}
-                {weather.daily_units.temperature_2m_max}
-              </p>
-
-              <p>
-                Lägst: {weather.daily.temperature_2m_min[index]}{" "}
-                {weather.daily_units.temperature_2m_min}
-              </p>
-            </div>
-          ))}
+          <ForecastList
+            daily={weather.daily}
+            dailyUnits={weather.daily_units}
+          />
         </div>
       )}
     </main>
