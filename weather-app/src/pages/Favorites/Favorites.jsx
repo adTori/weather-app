@@ -1,5 +1,6 @@
 import { useWeatherContext } from "../../context/WeatherContext";
 import EmptyState from "../../components/EmptyState/EmptyState";
+import "./Favorites.css";
 
 function Favorites() {
   const { favorites, setFavorites } = useWeatherContext();
@@ -19,10 +20,10 @@ function Favorites() {
       {favorites.length === 0 ? (
         <EmptyState message="Du har inga sparade städer." />
       ) : (
-        <ul>
+        <ul className="favorites-list">
           {favorites.map((city) => (
-            <li key={city}>
-              {city}
+            <li key={city} className="favorite-item">
+              <span>{city}</span>
 
               <button
                 type="button"

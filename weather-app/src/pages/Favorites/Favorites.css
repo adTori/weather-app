@@ -1,0 +1,39 @@
+.favorites-list {
+  list-style: none;
+  padding: 0;
+  margin: 2rem 0 0;
+  display: grid;
+  gap: 1rem;
+  max-width: 600px;
+}
+
+.favorite-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 1.25rem;
+  background-color: white;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.favorite-item span {
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.favorite-item button {
+  flex-shrink: 0;
+}
+
+@media (max-width: 500px) {
+  .favorite-item {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .favorite-item button {
+    width: 100%;
+  }
+}
