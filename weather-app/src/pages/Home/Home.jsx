@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import SearchBar from "../../components/SearchBar/SearchBar";
+import "./Home.css";
 
 function Home() {
   const [city, setCity] = useState("");
@@ -23,7 +24,7 @@ function Home() {
   }
 
   return (
-    <main>
+    <main className="home">
       <h1>Väderappen</h1>
       <p>Sök efter en stad för att se vädret.</p>
 

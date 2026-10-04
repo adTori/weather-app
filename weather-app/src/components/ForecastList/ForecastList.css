@@ -1,0 +1,28 @@
+.forecast h2 {
+  margin-bottom: 1rem;
+}
+
+.forecast-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.forecast-list li {
+  background-color: white;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+}
+
+.forecast-list h3 {
+  font-size: 1rem;
+  margin-bottom: 0.75rem;
+}
+
+.forecast-list p {
+  margin: 0.5rem 0;
+}

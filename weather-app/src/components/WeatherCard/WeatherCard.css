@@ -1,0 +1,19 @@
+.weather-card {
+  background-color: white;
+  padding: 1.5rem;
+  border-radius: 10px;
+  border: 1px solid #ddd;
+  margin-bottom: 2rem;
+}
+
+.weather-card h2 {
+  margin-bottom: 1rem;
+}
+
+.weather-card p {
+  margin: 0.5rem 0;
+}
+
+.weather-card button {
+  margin-top: 1rem;
+}

@@ -1,5 +1,6 @@
 import getWeatherDescription from "../../helpers/weatherHelpers";
 import { useWeatherContext } from "../../context/WeatherContext";
+import "./WeatherCard.css";
 
 function WeatherCard({ location, weather }) {
   const { favorites, setFavorites } = useWeatherContext();
@@ -11,7 +12,7 @@ function WeatherCard({ location, weather }) {
   }
 
   return (
-    <section>
+    <section className="weather-card">
       <h2>{location.name}</h2>
 
       <p>

@@ -1,3 +1,5 @@
+import "./SearchBar.css";
+
 function SearchBar({ city, setCity, onSearch }) {
   return (
     <form onSubmit={onSearch}>

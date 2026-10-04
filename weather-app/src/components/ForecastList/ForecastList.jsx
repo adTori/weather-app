@@ -1,11 +1,12 @@
 import getWeatherDescription from "../../helpers/weatherHelpers";
+import "./ForecastList.css";
 
 function ForecastList({ daily, dailyUnits }) {
   return (
-    <section>
+    <section className="forecast">
       <h2>Prognos</h2>
 
-      <ul>
+      <ul className="forecast-list">
         {daily.time.map((date, index) => (
           <li key={date}>
             <h3>{date}</h3>
