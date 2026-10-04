@@ -1,7 +1,15 @@
 import { useWeatherContext } from "../../context/WeatherContext";
 
 function Favorites() {
-  const { favorites } = useWeatherContext();
+  const { favorites, setFavorites } = useWeatherContext();
+
+  function handleRemoveFavorite(city) {
+    const updatedFavorites = favorites.filter(
+      (favorite) => favorite !== city
+    );
+
+    setFavorites(updatedFavorites);
+  }
 
   return (
     <main>
@@ -12,7 +20,16 @@ function Favorites() {
       ) : (
         <ul>
           {favorites.map((city) => (
-            <li key={city}>{city}</li>
+            <li key={city}>
+              {city}
+
+              <button
+                type="button"
+                onClick={() => handleRemoveFavorite(city)}
+              >
+                Ta bort
+              </button>
+            </li>
           ))}
         </ul>
       )}
