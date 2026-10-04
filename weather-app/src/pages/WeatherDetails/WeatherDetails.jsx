@@ -3,6 +3,7 @@ import useWeather from "../../hooks/useWeather";
 import ForecastList from "../../components/ForecastList/ForecastList";
 import WeatherCard from "../../components/WeatherCard/WeatherCard";
 import Loading from "../../components/Loading/Loading";
+import ErrorMessage from "../../components/ErrorMessage/ErrorMessage";
 
 function WeatherDetails() {
   const { city } = useParams();
@@ -21,7 +22,7 @@ function WeatherDetails() {
     return (
       <main>
         <h1>Väderdetaljer</h1>
-        <p>{error}</p>
+        <ErrorMessage message={error} />
       </main>
     );
   }
