@@ -1,6 +1,15 @@
 import getWeatherDescription from "../../helpers/weatherHelpers";
+import { useWeatherContext } from "../../context/WeatherContext";
 
 function WeatherCard({ location, weather }) {
+  const { favorites, setFavorites } = useWeatherContext();
+
+  function handleAddFavorite() {
+    if (!favorites.includes(location.name)) {
+      setFavorites([...favorites, location.name]);
+    }
+  }
+
   return (
     <section>
       <h2>{location.name}</h2>
@@ -18,6 +27,10 @@ function WeatherCard({ location, weather }) {
         Vind: {weather.current.wind_speed_10m}{" "}
         {weather.current_units.wind_speed_10m}
       </p>
+
+      <button type="button" onClick={handleAddFavorite}>
+        Lägg till som favorit
+      </button>
     </section>
   );
 }
