@@ -1,9 +1,10 @@
 .favorites-list {
   list-style: none;
   padding: 0;
-  margin: 2rem 0 0;
+  margin: 2rem auto 0;
   display: grid;
   gap: 1rem;
+  width: 100%;
   max-width: 600px;
 }
 
