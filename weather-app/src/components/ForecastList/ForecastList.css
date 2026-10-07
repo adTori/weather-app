@@ -26,3 +26,8 @@
 .forecast-list p {
   margin: 0.5rem 0;
 }
+
+.forecast-icon {
+  font-size: 2.5rem;
+  margin: 0.75rem 0;
+}

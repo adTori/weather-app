@@ -1,4 +1,8 @@
-import getWeatherDescription from "../../helpers/weatherHelpers";
+import {
+  getWeatherDescription,
+  getWeatherIcon,
+  formatWeatherDate,
+} from "../../helpers/weatherHelpers";
 import "./ForecastList.css";
 
 function ForecastList({ daily, dailyUnits }) {
@@ -9,15 +13,14 @@ function ForecastList({ daily, dailyUnits }) {
       <ul className="forecast-list">
         {daily.time.map((date, index) => (
           <li key={date}>
-            <h3>{date}</h3>
+            <h3>{formatWeatherDate(date)}</h3>
 
-            <p>
-              {getWeatherDescription(daily.weather_code[index])}
+            <p className="forecast-icon" aria-hidden="true">
+              {getWeatherIcon(daily.weather_code[index])}
             </p>
 
             <p>
-              Högst: {daily.temperature_2m_max[index]}{" "}
-              {dailyUnits.temperature_2m_max}
+              {getWeatherDescription(daily.weather_code[index])}
             </p>
 
             <p>

@@ -1,13 +1,28 @@
-import getWeatherDescription from "../../helpers/weatherHelpers";
+import { useEffect, useState } from "react";
+import { getWeatherDescription } from "../../helpers/weatherHelpers";
 import { useWeatherContext } from "../../context/WeatherContext";
 import "./WeatherCard.css";
 
 function WeatherCard({ location, weather }) {
   const { favorites, setFavorites } = useWeatherContext();
+  const [favoriteMessage, setFavoriteMessage] = useState("");
+
+  useEffect(() => {
+    if (!favoriteMessage) {
+      return;
+    }
+
+    const timer = setTimeout(() => {
+      setFavoriteMessage("");
+    }, 3000);
+
+    return () => clearTimeout(timer);
+  }, [favoriteMessage]);
 
   function handleAddFavorite() {
     if (!favorites.includes(location.name)) {
       setFavorites([...favorites, location.name]);
+      setFavoriteMessage(`${location.name} har lagts till som favorit!`);
     }
   }
 
@@ -32,6 +47,12 @@ function WeatherCard({ location, weather }) {
       <button type="button" onClick={handleAddFavorite}>
         Lägg till som favorit
       </button>
+
+      {favoriteMessage && (
+        <p className="favorite-notification" role="status">
+          {favoriteMessage}
+        </p>
+      )}
     </section>
   );
 }

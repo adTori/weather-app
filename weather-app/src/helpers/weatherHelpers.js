@@ -24,4 +24,42 @@ function getWeatherDescription(code) {
   return descriptions[code] || "Okänt väder";
 }
 
-export default getWeatherDescription;
+function getWeatherIcon(code) {
+  const icons = {
+    0: "☀️",
+    1: "🌤️",
+    2: "⛅",
+    3: "☁️",
+    45: "🌫️",
+    48: "🌫️",
+    51: "🌦️",
+    53: "🌦️",
+    55: "🌧️",
+    61: "🌧️",
+    63: "🌧️",
+    65: "🌧️",
+    71: "🌨️",
+    73: "❄️",
+    75: "❄️",
+    80: "🌦️",
+    81: "🌧️",
+    82: "🌧️",
+    95: "⛈️",
+  };
+
+  return icons[code] || "🌡️";
+}
+
+function formatWeatherDate(dateString) {
+  const date = new Date(`${dateString}T12:00:00`);
+
+  const formattedDate = new Intl.DateTimeFormat("sv-SE", {
+    weekday: "long",
+    day: "numeric",
+    month: "long",
+  }).format(date);
+
+  return formattedDate.charAt(0).toUpperCase() + formattedDate.slice(1);
+}
+
+export { getWeatherDescription, getWeatherIcon, formatWeatherDate };
